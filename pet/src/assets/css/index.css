@@ -1,0 +1,221 @@
+/* 轮播 */
+#banner {
+    height: 550px;
+    min-width: 1200px;
+    position: relative;
+    margin-bottom: 27px;
+}
+
+#banner img {
+    height: 100%;
+    width: 100%;
+}
+
+#banner .content {
+    width: 458px;
+    height: 175px;
+    background: url(../images/border.png) no-repeat;
+    text-align: center;
+    padding-top: 37px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#banner .content h1 {
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 43px;
+    font-weight: bold;
+    line-height: 38px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#banner .content p {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+/* 产品特性 */
+#feather div {
+    width: 320px;
+    height: 130px;
+    float: left;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#feather div:nth-child(1) {
+    background: url(../../assets/images/bg1.jpg) rgba(0, 0, 0, .4) no-repeat;
+    background-blend-mode: multiply;
+}
+
+#feather div:nth-child(2) {
+    background: url(../../assets/images/bg2.jpg) rgba(0, 0, 0, .4) no-repeat;
+    background-blend-mode: multiply;
+    background-size: 100%;
+
+}
+
+#feather div:nth-child(3) {
+    background: url(../../assets/images/bg3.jpg) rgba(0, 0, 0, .4) no-repeat;
+    background-size: 100%;
+    background-blend-mode: multiply;
+}
+
+#feather div h1 {
+    font-size: 20px;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+#feather div p {
+    font-size: 12px;
+    line-height: 28px;
+    color: #ffffff;
+    opacity: 0.7;
+    text-indent: 2em;
+}
+
+/* 产品展示 */
+/* 产品展示左边部分 */
+#ourproducts .left {
+    width: 600px;
+    height: 620px;
+}
+
+#ourproducts .left div {
+    width: 270px;
+    height: 275px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#ourproducts .left div:hover .active {
+    display: block;
+}
+
+#ourproducts .left div .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+/* 产品展示右边部分 */
+#ourproducts .right {
+    width: 600px;
+    height: 630px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#ourproducts .right:hover .active {
+    display: block;
+}
+
+#ourproducts .right .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+/* 关于我们 */
+#aboutUs {
+    height: 510px;
+    background: url(../../assets/images/mid.jpg) no-repeat center;
+    background-size: 100%;
+    position: relative;
+    margin-bottom: 65px;
+}
+
+#aboutUs div {
+    width: 675px;
+    height: 355px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#aboutUs div h1 {
+    height: 60px;
+    font-size: 29px;
+    line-height: 38px;
+    color: #3c3c3c;
+    margin-bottom: 28px;
+}
+
+#aboutUs div p {
+    padding: 0 30px;
+    font-size: 14px;
+    line-height: 28px;
+    text-indent: 2em;
+    color: #6b6b6b;
+    margin-bottom: 33px;
+}
+
+#aboutUs div a {
+    display: block;
+    width: 155px;
+    height: 46px;
+    background: #25bbce;
+    font-size: 14px;
+    line-height: 46px;
+    margin: 0 auto;
+    color: #ffffff;
+    border-radius: 25px;
+}
+
+/* 新闻动态 */
+#news .content div {
+    width: 385px;
+    height: 495px;
+    margin-bottom: 70px;
+    float: left;
+    margin-right: 22px;
+}
+
+#news .content .last {
+    margin-right: 0;
+}
+
+#news .content div img {
+    width: 385px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+#news .content div .chat {
+    font-size: 14px;
+    line-height: 38px;
+    color: #15bded;
+}
+
+#news .content li {
+    border-bottom: 2px solid #d8d8db;
+}
+
+#news .content li a {
+    font-size: 14px;
+    color: #6a6a6a;
+}
+
+#news .content div .time {
+    font-size: 12px;
+    line-height: 38px;
+    color: #a5a5b1;
+    float: right;
+}

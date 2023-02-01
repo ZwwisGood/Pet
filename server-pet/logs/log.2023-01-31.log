@@ -1,0 +1,51 @@
+[2023-01-31T18:08:20.806] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'replace')
+    at Object.formatDate (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\utils\utils.js:56:27)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\articles.js:61:29
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-unless\index.js:26:14
+[2023-01-31T18:09:22.001] [ERROR] error - TypeError: util.formatDate is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\articles.js:61:29
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-unless\index.js:26:14
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-compose\index.js:42:32)
+[2023-01-31T18:09:27.235] [ERROR] error - TypeError: util.formatDate is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\articles.js:61:29
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-unless\index.js:26:14
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-compose\index.js:42:32)
