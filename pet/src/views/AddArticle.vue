@@ -16,21 +16,25 @@
                         <div ref="editorElem"></div>
                     </div>
                     <div style="float:right;margin-top:10px">
-                        <el-button type="danger" size="large" @click="clear">清空</el-button>
+                        <span style="margin-right: 50px" v-if="art.artId">您正在编辑ID为 {{ this.art.artId }} 的文章</span>
+                        <el-popconfirm placement="top" title="确定清空所有内容吗?" confirm-button-text="确定"
+                            cancel-button-text="关闭" @confirm="clear">
+                            <template #reference>
+                                <el-button type="danger" size="large">清空</el-button>
+                            </template>
+                        </el-popconfirm>
                         <el-button type="primary" size="large" @click="submit">提交</el-button>
                     </div>
                 </el-form-item>
             </el-form>
         </el-card>
-        <el-button @click="show">show</el-button>
-        =<div v-html="value"></div>=
     </div>
 </template>
 
 <script>
 import E from 'wangeditor'
 export default {
-    name: "AddAriticle",
+    name: "AddArticle",
     data() {
         return {
             oldValue: [],
@@ -52,8 +56,11 @@ export default {
             }
         }
     },
+    created() {
+    },
     mounted() {
-        console.log('mounted')
+        // this.id = JSON.parse(aaa)
+        // console.log(this.id);
         this.editor = new E(this.$refs.editorElem)
         // wangeditor “＞=3.0.0“时会出现这个错误，需要手动设置一下兼容老版本。
         this.editor.customConfig = this.editor.customConfig ? this.editor.customConfig : this.editor.config
@@ -75,6 +82,11 @@ export default {
             this.art.content = this.editor.txt.html()
             this.onchange(this.art.content)
         })
+        if (this.$route.params.id) {
+            // 回显
+            this.art = JSON.parse(this.$route.params.id)
+            this.editor.txt.html(this.art.content)
+        }
     },
     methods: {
         show() {
@@ -89,12 +101,13 @@ export default {
             this.$refs.art.validate(async (valid) => {
                 if (valid) {
                     try {
+                        console.log(this.art);
                         const res = await this.$api({
                             method: 'post',
                             url: '/article/add',
                             data: this.art
                         })
-                        console.log(res);
+                        this.$message.success('提交成功')
                     } catch (error) {
                         this.$message.error('添加失败')
                     }
@@ -140,3 +153,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

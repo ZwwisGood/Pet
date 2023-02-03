@@ -23,7 +23,7 @@
                 <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
                     :label="item.label" :width="item.width" :formatter="item.formatter">
                 </el-table-column>
-                <el-table-column label="操作" width="100">
+                <el-table-column align="center" label="操作" width="100">
                     <template #default="scope">
                         <el-popconfirm placement="top" title="确定删除该用户吗?" confirm-button-text="确定"
                             cancel-button-text="关闭" @confirm="handleDel(scope.row.userId)">

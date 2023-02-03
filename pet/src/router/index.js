@@ -58,7 +58,7 @@ const router = createRouter({
                     component: () => import('../views/Article.vue'),
                 },
                 {
-                    path: '/admin/addArticle',
+                    path: 'addArticle',
                     name: 'AddArticle',
                     meta: {
                         title: '添加与编辑',

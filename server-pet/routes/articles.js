@@ -1,13 +1,41 @@
 const router = require('koa-router')()
-const articleSchema = require('../models/articleSchema')
+const Article = require('../models/articleSchema')
+const Counter = require('../models/counterSchema')
 const util = require('../utils/utils')
 const multer = require('koa-multer')
 const fs = require('fs')
+const { log } = require('console')
 
 router.prefix('/article')
 
 router.get('/list', async (ctx) => {
+    const { artId, artTitle, artType, status } = ctx.request.query
+    const { page, skipIndex } = util.pager(ctx.request.query)
+    let params = {}
+    if (artId) params.artId = artId
+    if (artTitle) params.title = artTitle
+    if (artType && artType != 0) params.type = artType
+    if (status && status != 0) params.status = status
+    try {
+        console.log('params', params);
+        const query = Article.find({
+            ...params,
+            title: { $regex: artTitle || '', $options: 'i' },
+        })
+        console.log('query', query);
+        const list = await query.skip(skipIndex).limit(page.pageSize)
+        const total = await Article.countDocuments(params)
 
+        ctx.body = util.success({
+            page: {
+                ...page,
+                total
+            },
+            list
+        })
+    } catch (error) {
+        ctx.body = util.fail(`查询异常:${error.stack}`)
+    }
 })
 
 router.post('/del', async (ctx) => {
@@ -54,24 +82,32 @@ router.post('/delImg', async (ctx) => {
     }
 })
 
-// 添加图文章
+// 添加文章
 router.post('/add', async (ctx) => {
-    console.log(ctx.request.body)
-    const { title, content, type } = ctx.request.body
+    const { artId, title, content, type } = ctx.request.body
+    if (artId) {
+        // 编辑
+        try {
+            // 将artId为artId的文章覆盖
+            await Article.findOneAndUpdate({ artId }, { title, content, type })
+            ctx.body = util.success('修改成功')
+        } catch (error) {
+            ctx.body = util.fail(`查询异常:${error.stack}`)
+        }
+    }
     const createTime = util.formatDate(new Date())
     try {
-        const res = await articleSchema.create({
+        const doc = await Counter.findOneAndUpdate({ _id: 'artId' }, { $inc: { sequence_value: 1 } }, { new: true })
+        const res = await Article.create({
+            artId: doc.sequence_value,
             title,
             content,
             type,
             createTime
         })
-        console.log(res);
+        ctx.body = util.success(res)
     } catch (error) {
         ctx.body = util.fail(`查询异常:${error.stack}`)
-    }
-    ctx.body = {
-        a: 1
     }
 })
 

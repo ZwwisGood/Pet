@@ -1,7 +1,7 @@
 // 维护用户ID自增长列表
 const mongoose = require('mongoose')
 const counterSchema = new mongoose.Schema({
-    _id: { type: String, required: true },
-    seq: { type: Number, default: 0 }
+    _id: { type: String },
+    sequence_value: { type: Number }
 })
-const Counter = mongoose.model('Counter', counterSchema)
+module.exports = mongoose.model('Counter', counterSchema, "counters")

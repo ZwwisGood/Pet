@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const articleSchema = new mongoose.Schema({
+    "artId": Number,
     "title": String,
     "type": String,
     "content": String,
@@ -12,6 +13,11 @@ const articleSchema = new mongoose.Schema({
     "like": {
         type: Number,
         default: 0
+    },
+    // 状态
+    "status": {
+        type: Number,
+        default: 1
     },
 })
 
