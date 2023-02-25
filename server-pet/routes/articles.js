@@ -4,7 +4,6 @@ const Counter = require('../models/counterSchema')
 const util = require('../utils/utils')
 const multer = require('koa-multer')
 const fs = require('fs')
-const { log } = require('console')
 
 router.prefix('/article')
 
@@ -17,14 +16,12 @@ router.get('/list', async (ctx) => {
     if (artType && artType != 0) params.type = artType
     if (status && status != 0) params.status = status
     try {
-        console.log('params', params);
         const query = Article.find({
             ...params,
             title: { $regex: artTitle || '', $options: 'i' },
-        })
-        console.log('query', query);
-        const list = await query.skip(skipIndex).limit(page.pageSize)
-        const total = await Article.countDocuments(params)
+        }).sort({ createTime: -1 })
+        const total = await Article.countDocuments(query)
+        const list = await (await query.skip(skipIndex).limit(page.pageSize))
 
         ctx.body = util.success({
             page: {
@@ -39,7 +36,13 @@ router.get('/list', async (ctx) => {
 })
 
 router.post('/del', async (ctx) => {
-
+    const { artId } = ctx.request.body
+    try {
+        const res = await Article.findOneAndUpdate({ artId }, { status: 0 })
+        ctx.body = util.success(res)
+    } catch (error) {
+        ctx.body = util.fail(`查询异常:${error.stack}`)
+    }
 })
 
 // 图片上传

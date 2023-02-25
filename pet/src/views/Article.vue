@@ -16,8 +16,12 @@
                         </el-select>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" @click="handleQuery">查询</el-button>
-                        <el-button @click="handleReset('form')">重置</el-button>
+                        <el-button type="primary" @click="handleQuery"><i
+                                class="el-icon-search"></i>&nbsp;查询</el-button>
+                        <el-button type="danger" @click="handleReset('form')"><i
+                                class="el-icon-close"></i>&nbsp;重置</el-button>
+                        <el-button type="success" @click="refresh"><i
+                                class="el-icon-refresh-left"></i>&nbsp;刷新</el-button>
                     </el-form-item>
                 </el-form>
             </div>
@@ -26,7 +30,8 @@
             <el-card>
                 <el-table style="width:100%" :data="artList">
                     <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
-                        :label="item.label" :width="item.width" :formatter="item.formatter" show-overflow-tooltip>
+                        :sortable="item.label == '文章ID' || item.label == '创建时间'" :label="item.label" :width="item.width"
+                        :formatter="item.formatter" show-overflow-tooltip>
                     </el-table-column>
                     <el-table-column align="center" label="操作" width="145">
                         <template #default="scope">
@@ -44,8 +49,8 @@
 
         </div>
         <div class="pag">
-            <el-pagination class="pagination" background layout="prev, pager, next" :total="pager.total"
-                :page-size="pager.pageSize" @current-change="handleCurrentChange" />
+            <el-pagination class="pagination" background layout="total, prev, pager, next, jumper" :total="pager.total"
+                :current-page="pager.pageNum" :page-size="pager.pageSize" @current-change="handleCurrentChange" />
         </div>
     </div>
 
@@ -53,6 +58,7 @@
 
 <script>
 import utils from "../utils/utils"
+import _ from 'lodash'
 
 export default {
     name: "User",
@@ -113,11 +119,16 @@ export default {
                     }
                 })
                 this.artList = res.list
-                console.log('res', res);
+                this.pager.total = res.page.total
             } catch (error) {
 
             }
         },
+        refresh: _.throttle(function () {
+            console.log(a);
+            this.getArtList()
+            this.$message.success('刷新成功')
+        }, 1000),
         handleQuery() {
             this.pager.pageNum = 1
             this.getArtList()
@@ -132,7 +143,19 @@ export default {
             this.getArtList()
         },
         handleDel(artId) {
-            console.log("删除")
+            try {
+                this.$api({
+                    url: "/article/del",
+                    method: "post",
+                    data: {
+                        artId
+                    }
+                })
+                this.getArtList()
+                this.$message.success("删除成功")
+            } catch (error) {
+                this.$message.error("删除失败")
+            }
         },
         handleEdit(art) {
             // 新版本路由传参
@@ -154,10 +177,6 @@ export default {
 
 :deep(.el-pagination.is-background .btn-prev) {
     padding-left: 9px;
-}
-
-.table {
-    min-height: 300px;
 }
 
 .pag {

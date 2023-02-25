@@ -7,7 +7,9 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const router = require('koa-router')()
 const users = require('./routes/users')
+const help = require('./routes/help')
 const articles = require('./routes/articles')
+const adopt = require('./routes/adopt')
 const koajwt = require('koa-jwt')
 const log4js = require('./utils/log4js')
 
@@ -54,6 +56,8 @@ router.prefix('/api')
 // routes
 router.use(users.routes(), users.allowedMethods())
 router.use(articles.routes(), articles.allowedMethods())
+router.use(help.routes(), help.allowedMethods())
+router.use(adopt.routes(), adopt.allowedMethods())
 
 app.use(router.routes(), router.allowedMethods())
 

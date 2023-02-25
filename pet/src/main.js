@@ -12,6 +12,7 @@ const app = createApp(App)
 
 app.config.globalProperties.$api = api
 
+
 app.use(router).
     use(store).
     use(ElementPlus, { size: 'small' }).

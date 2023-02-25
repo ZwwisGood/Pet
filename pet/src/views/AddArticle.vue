@@ -118,22 +118,20 @@ export default {
                     })
                     return false;
                 }
-            });
+            })
+            // 跳转到文章列表
+            this.$router.push('/admin/article')
         },
         onchange(html) {
             // 获取所有的img标签
             let imgArr = html.match(/<img.*?(?:>|\/>)/gi);
             // 获取所有src的值
             imgArr = imgArr?.map(item => item.match(/src=['"]?([^'"]*)['"]?/i)[1]);
-            console.log('---', imgArr);
-            console.log('old', this.oldValue);
             if (imgArr) {
                 this.newValue = imgArr
             } else {
                 this.newValue = []
             }
-            console.log('new', this.newValue);
-            console.log(this.oldValue.length, this.newValue.length)
             // 如果新的数组长度小于旧的数组长度，说明有图片被删除了
             if (this.newValue.length < this.oldValue.length) {
                 // 获取被删除的图片

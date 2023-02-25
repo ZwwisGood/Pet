@@ -8,16 +8,24 @@ const userSchema = new mongoose.Schema({
     //创建时间
     "createTime": {
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
     //更新时间
     "lastLoginTime": {
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
     // 头像
     "avatar": String,
     "state": {
+        type: Number,
+        default: 1
+    },
+    "likeArt": {
+        type: Array,
+        default: []
+    },
+    "role": {
         type: Number,
         default: 1
     }

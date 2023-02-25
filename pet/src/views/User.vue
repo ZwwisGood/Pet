@@ -1,48 +1,89 @@
 <template>
     <div class="animated animate__fadeIn">
         <el-card style="margin-bottom:5px">
-        <div class="query-form">
-            <el-form ref="form" :inline="true" :model="user">
-                <el-form-item label="用户ID" prop="userId">
-                    <el-input v-model="user.userId" placeholder="请输入用户ID" />
-                </el-form-item>
-                <el-form-item label="用户名称" prop="userName">
-                    <el-input v-model="user.userName" placeholder="请输入用户名称" />
-                </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="handleQuery">查询</el-button>
-                    <el-button @click="handleReset('form')">重置</el-button>
-                </el-form-item>
-            </el-form>
-        </div>
-    </el-card>
-
-    <div class="table">
-        <el-card>
-            <el-table style="width:100%" :data="userList">
-                <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
-                    :label="item.label" :width="item.width" :formatter="item.formatter">
-                </el-table-column>
-                <el-table-column align="center" label="操作" width="100">
-                    <template #default="scope">
-                        <el-popconfirm placement="top" title="确定删除该用户吗?" confirm-button-text="确定"
-                            cancel-button-text="关闭" @confirm="handleDel(scope.row.userId)">
-                            <template #reference>
-                                <el-button type="danger">删除</el-button>
-                            </template>
-                        </el-popconfirm>
-                    </template>
-                </el-table-column>
-            </el-table>
+            <div class="query-form">
+                <el-form ref="form" :inline="true" :model="user">
+                    <el-form-item label="用户ID" prop="userId">
+                        <el-input v-model="user.userId" placeholder="请输入用户ID" />
+                    </el-form-item>
+                    <el-form-item label="用户名称" prop="userName">
+                        <el-input v-model="user.userName" placeholder="请输入用户名称" />
+                    </el-form-item>
+                    <!-- 角色 -->
+                    <el-form-item label="角色" prop="role">
+                        <el-select v-model="user.role" placeholder="请选择" clearable >
+                            <el-option label="普通用户" value="1"></el-option>
+                            <el-option label="管理员" value="2"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="handleQuery"><i class="el-icon-search"></i>&nbsp;查询</el-button>
+                        <el-button type="danger" @click="handleReset('form')"><i
+                                class="el-icon-close"></i>&nbsp;重置</el-button>
+                        <el-button type="success" @click="refresh"><i class="el-icon-refresh-left"></i>&nbsp;刷新</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
         </el-card>
 
+        <div class="table">
+            <el-card>
+                <el-button type="primary" @click="handleCreate()">添加用户/管理员</el-button>
+                <el-table style="width:100%" :data="userList">
+                    <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
+                        :label="item.label" :width="item.width" :formatter="item.formatter">
+                    </el-table-column>
+                    <el-table-column align="center" label="角色">
+                        <template #default="scope">
+                            <el-tag v-if="scope.row.role == 1" type="success">普通用户</el-tag>
+                            <el-tag v-else type="danger">管理员</el-tag>
+                        </template>
+                    </el-table-column>
+                    <el-table-column align="center" label="操作" width="150">
+                        <template #default="scope">
+                            <el-button type="primary" @click="handleEdit(scope.row)">编辑</el-button>
+                            <el-popconfirm placement="top" title="确定删除该用户吗?" confirm-button-text="确定"
+                                cancel-button-text="关闭" @confirm="handleDel(scope.row.userId)">
+                                <template #reference>
+                                    <el-button type="danger">删除</el-button>
+                                </template>
+                            </el-popconfirm>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </el-card>
+        </div>
+        <el-dialog width="35%" :title="action == 'edit' ? '编辑' : '新增'" v-model="showModal">
+            <el-form ref="dialogForm" :model="userForm" label-width="80px" :rules="rules">
+                <el-form-item label="用户名" prop="userName">
+                    <el-input v-model="userForm.userName" placeholder="请输入用户名称" />
+                </el-form-item>
+                <el-form-item label="手机号" prop="phone">
+                    <el-input v-model="userForm.phone" placeholder="请输入手机号" />
+                </el-form-item>
+                <el-form-item label="初始密码" prop="userPwd">
+                    <el-input v-model="userForm.userPwd" placeholder="请输入初始密码" />
+                </el-form-item>
+                <el-form-item label="角色" prop="role">
+                    <!-- 单选框 -->
+                    <el-radio-group v-model="userForm.role">
+                        <el-radio :label="1">普通用户</el-radio>
+                        <el-radio :label="2">管理员</el-radio>
+                    </el-radio-group>
+                </el-form-item>
+            </el-form>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="handleClose">取 消</el-button>
+                    <el-button type="primary" @click="handleSubmit()">确 定</el-button>
+                </span>
+            </template>
+        </el-dialog>
+        <div class="pag">
+            <el-pagination class="pagination" background layout="total, prev, pager, next, jumper" :total="pager.total"
+                :current-page="pager.pageNum" :page-size="pager.pageSize" @current-change="handleCurrentChange" />
+        </div>
     </div>
-    <div class="pag">
-        <el-pagination class="pagination" background layout="prev, pager, next" :total="pager.total"
-            :page-size="pager.pageSize" @current-change="handleCurrentChange" />
-    </div>
-    </div>
-    
 </template>
 
 <script>
@@ -52,6 +93,7 @@ import { getCurrentInstance, onMounted, reactive, ref, toRaw } from "vue"
 import { ElMessage } from 'element-plus'
 import utils from "../utils/utils"
 import api from "../api/index"
+import _ from 'lodash'
 
 export default {
     name: "User",
@@ -62,6 +104,30 @@ export default {
         ctx.$api = api
         const user = reactive({
             state: 1,
+        })
+        const userForm = reactive({
+            state: 1,
+            role: 2,
+            userPwd: '666666'
+        })
+        const showModal = ref(false)
+        const action = ref('edit')
+        const rules = reactive({
+            userName: [
+                { required: true, message: '请输入用户名', trigger: 'blur' },
+                { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
+            ],
+            phone: [
+                { message: '请输入手机号', trigger: 'blur' },
+                { pattern: /^1[3456789]\d{9}$/, message: '手机号格式不正确', trigger: 'blur' }
+            ],
+            userPwd: [
+                { required: true, message: '请输入初始密码', trigger: 'blur' },
+                { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+            ],
+            role: [
+                { required: true, message: '请选择角色', trigger: 'blur' },
+            ],
         })
         // 初始化用户列表数据
         const userList = ref([{
@@ -75,7 +141,7 @@ export default {
         // 初始化分页对象
         const pager = reactive({
             pageNum: 1,
-            pageSize: 9,
+            pageSize: 8,
             total: 0
         })
         // 定义列
@@ -91,9 +157,8 @@ export default {
                 prop: "userName",
             },
             {
-                width: 250,
-                label: "手机号",
-                prop: "phone",
+                label: '手机号',
+                prop: 'phone',
             },
             {
                 width: 250,
@@ -114,6 +179,42 @@ export default {
         ])
 
         // ---方法---
+        const handleCreate = () => {
+            action.value = "add"
+            showModal.value = true
+        }
+        const handleEdit = (row) => {
+            action.value = "edit"
+            ctx.$nextTick(() => {
+                Object.assign(userForm, row)
+            })
+            showModal.value = true
+        }
+        const handleClose = () => {
+            showModal.value = false
+            ctx.$refs.dialogForm.resetFields()
+        }
+        const handleSubmit = async () => {
+            try {
+                ctx.$refs.dialogForm.validate(async (valid) => {
+                    if (valid) {
+                        let params = toRaw(userForm)
+                        params.action = action.value
+                        let res = await ctx.$api({
+                            url: "/user/add",
+                            method: "post",
+                            data: params
+                        })
+                        showModal.value = false
+                        ElMessage.success('添加成功')
+                        handleReset("dialogForm")
+                        getUserList()
+                    }
+                })
+            } catch (error) {
+                ElMessage.error('添加失败')
+            }
+        }
         // 查询
         const handleQuery = () => {
             getUserList()
@@ -170,6 +271,12 @@ export default {
             pager.pageNum = current
             getUserList()
         }
+        // lodash
+        const refresh = _.throttle(function () {
+            getUserList()
+            ElMessage.success('刷新成功')
+        }, 1000)
+
 
         // ---生命周期函数---
         onMounted(() => {
@@ -186,6 +293,15 @@ export default {
             pager,
             handleCurrentChange,
             handleDel,
+            refresh,
+            showModal,
+            userForm,
+            action,
+            handleCreate,
+            handleClose,
+            handleEdit,
+            handleSubmit,
+            rules,
         }
     }
 }
@@ -197,10 +313,6 @@ export default {
 
 :deep(.el-pagination.is-background .btn-prev) {
     padding-left: 9px;
-}
-
-.table {
-    min-height: 300px;
 }
 
 .pag {

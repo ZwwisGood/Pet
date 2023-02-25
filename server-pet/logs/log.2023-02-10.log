@@ -1,0 +1,40 @@
+[2023-02-10T20:58:30.260] [ERROR] error - TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    at Object.get length [as length] (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa\lib\response.js:215:35)
+    at logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:77:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-10T20:59:22.956] [ERROR] error - TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    at Object.get length [as length] (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa\lib\response.js:215:35)
+    at logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:77:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-10T21:00:44.195] [ERROR] error - TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    at Object.get length [as length] (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa\lib\response.js:215:35)
+    at logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:77:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-10T21:01:52.900] [ERROR] error - TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    at Object.get length [as length] (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa\lib\response.js:215:35)
+    at logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:77:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)

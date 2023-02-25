@@ -1,0 +1,126 @@
+[2023-02-25T00:47:43.683] [ERROR] error - ReferenceError: Cannot access 'petName' before initialization
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:36:45
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-25T01:35:55.897] [ERROR] error - ReferenceError: fs is not defined
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:96:5
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-25T01:36:24.987] [ERROR] error - Error: ENOENT: no such file or directory, unlink 'public/uploads/http://localhost:3000/uploads/1677257364455头像.jpeg'
+    at Object.unlinkSync (node:fs:1720:3)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:97:8
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+[2023-02-25T01:59:38.540] [ERROR] error - Error: ENOENT: no such file or directory, unlink 'public/uploads/26e919a3-0ee5-4757-81b1-846afe033c88'
+    at Object.unlinkSync (node:fs:1720:3)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:124:8
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+[2023-02-25T02:07:49.367] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:10:16.146] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:19:20.022] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:19:29.192] [ERROR] error - Error: ENOENT: no such file or directory, unlink 'public/uploads/1677262725123头像 (2).jpg'
+    at Object.unlinkSync (node:fs:1720:3)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:137:8
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:19:32.128] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:20:13.643] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T02:20:24.620] [ERROR] error - TypeError: r.countDocuments is not a function
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:41:23
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)
+[2023-02-25T03:07:55.624] [ERROR] error - Error: ENOENT: no such file or directory, unlink 'public/uploads/1677265554581头像 (2).jpg'
+    at Object.unlinkSync (node:fs:1720:3)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\adopt.js:152:8
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\app.js:38:3
+    at async serve (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-static\index.js:53:9)
+    at async logger (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-bodyparser\index.js:95:5)

@@ -1,0 +1,85 @@
+[2023-02-13T14:28:38.285] [ERROR] error - TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\help.js:12:35
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-13T14:29:02.626] [ERROR] error - TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\help.js:12:35
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-13T14:32:39.480] [ERROR] error - TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\help.js:12:35
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-13T14:32:54.269] [ERROR] error - TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\help.js:12:35
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+[2023-02-13T14:33:21.540] [ERROR] error - TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\routes\help.js:12:35
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at allowedMethods (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\张伟伟牛逼\Desktop\毕设pet\server-pet\node_modules\koa-router\lib\router.js:346:16

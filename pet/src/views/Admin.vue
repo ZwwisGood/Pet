@@ -30,7 +30,7 @@
               <el-menu-item index="/admin/help"><i class="el-icon-help"></i>救助管理</el-menu-item>
               <el-menu-item index="/admin/adopt"><i class="el-icon-edit-outline"></i>领养管理</el-menu-item>
             </el-submenu>
-            <el-submenu index="2">
+            <el-submenu index="3">
               <template #title>
                 <i class="el-icon-s-shop"></i>
                 <span>商城管理</span>

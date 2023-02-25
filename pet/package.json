@@ -13,6 +13,7 @@
     "axios": "^1.2.2",
     "element-plus": "^1.0.2-beta.32",
     "elui-china-area-dht": "^2.0.0",
+    "lodash": "^4.17.21",
     "sass": "^1.57.1",
     "swiper": "^4.5.1",
     "vue": "^3.2.45",

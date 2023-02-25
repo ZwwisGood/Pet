@@ -13,14 +13,13 @@ const helpSchemar = new mongoose.Schema({
     "petName": String,
     // 备注
     "remark": String,
+    // 图片
+    "img": Array,
     // 救助状态
-    "status": {
-        type: Number,
-        default: 0 // 0:未处理 1:救助中 2: 救助失败 3:救助成功
-    },
+    "status": String,
     // 失败理由
     "failReason": String,
-    // 求救时间
+    // 求助时间
     "createTime": {
         type: Date,
         default: Date.now
@@ -31,3 +30,5 @@ const helpSchemar = new mongoose.Schema({
         default: Date.now
     },
 })
+
+module.exports = mongoose.model('Help', helpSchemar, 'help')
