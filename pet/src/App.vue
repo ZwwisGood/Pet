@@ -1,7 +1,10 @@
 <template>
-  <Top v-if="!this.$route.path.includes('/admin')" />
-  <Menu v-if="!this.$route.path.includes('/login') && !this.$route.path.includes('/admin')" />
-  <router-view></router-view>
+  <div>
+    <Top class="animated animate__slideInDown" v-if="!this.$route.path.includes('/admin')" />
+    <Menu class="animated animate__slideInDown"
+      v-if="!this.$route.path.includes('/login') && !this.$route.path.includes('/admin')" />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
                     </el-form-item>
                     <!-- 角色 -->
                     <el-form-item label="角色" prop="role">
-                        <el-select v-model="user.role" placeholder="请选择" clearable >
+                        <el-select v-model="user.role" placeholder="请选择" clearable>
                             <el-option label="普通用户" value="1"></el-option>
                             <el-option label="管理员" value="2"></el-option>
                         </el-select>
@@ -28,7 +28,7 @@
 
         <div class="table">
             <el-card>
-                <el-button type="primary" @click="handleCreate()">添加用户/管理员</el-button>
+                <el-button type="primary" @click="handleCreate()"><i class="el-icon-plus"></i>添加用户/管理员</el-button>
                 <el-table style="width:100%" :data="userList">
                     <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
                         :label="item.label" :width="item.width" :formatter="item.formatter">
@@ -80,8 +80,9 @@
             </template>
         </el-dialog>
         <div class="pag">
-            <el-pagination class="pagination" background layout="total, prev, pager, next, jumper" :total="pager.total"
-                :current-page="pager.pageNum" :page-size="pager.pageSize" @current-change="handleCurrentChange" />
+            <el-pagination :page-sizes="[8, 15, 20]" @size-change="handleSizeChange" class="pagination" background
+                layout="total, prev, pager, next, jumper, sizes" :total="pager.total" :current-page="pager.pageNum"
+                :page-size="pager.pageSize" @current-change="handleCurrentChange" />
         </div>
     </div>
 </template>
@@ -129,6 +130,10 @@ export default {
                 { required: true, message: '请选择角色', trigger: 'blur' },
             ],
         })
+        const handleSizeChange = (number) => {
+            pager.value.pageSize = number
+            getUserList()
+        }
         // 初始化用户列表数据
         const userList = ref([{
             userId: 1,
@@ -139,7 +144,7 @@ export default {
             state: 1,
         }])
         // 初始化分页对象
-        const pager = reactive({
+        const pager = ref({
             pageNum: 1,
             pageSize: 8,
             total: 0
@@ -195,25 +200,22 @@ export default {
             ctx.$refs.dialogForm.resetFields()
         }
         const handleSubmit = async () => {
-            try {
-                ctx.$refs.dialogForm.validate(async (valid) => {
-                    if (valid) {
-                        let params = toRaw(userForm)
-                        params.action = action.value
-                        let res = await ctx.$api({
-                            url: "/user/add",
-                            method: "post",
-                            data: params
-                        })
-                        showModal.value = false
-                        ElMessage.success('添加成功')
-                        handleReset("dialogForm")
-                        getUserList()
-                    }
-                })
-            } catch (error) {
-                ElMessage.error('添加失败')
-            }
+            ctx.$refs.dialogForm.validate(async (valid) => {
+                if (valid) {
+                    let params = toRaw(userForm)
+                    params.action = action.value
+                    let res = await ctx.$api({
+                        url: "/user/add",
+                        method: "post",
+                        data: params
+                    })
+                    console.log(Boolean(res));
+                    showModal.value = false
+                    ElMessage.success('添加成功')
+                    handleReset("dialogForm")
+                    getUserList()
+                }
+            })
         }
         // 查询
         const handleQuery = () => {
@@ -233,21 +235,19 @@ export default {
                 ...toRaw(user),
                 ...toRaw(pager),
             }
+            let token = JSON.parse(window.localStorage.getItem('petUserInfo')).token
+            console.log(token);
             try {
                 const { list, page } = await ctx.$api({
                     url: "/user/list",
                     method: "get",
                     data: params,
-                    // 携带token
-                    // headers: {
-                    //     token: '',
-                    // },
                 })
                 userList.value = list
                 pager.total = page.total
 
             } catch (error) {
-                ElMessage.error('不好意思，出错啦~')
+                // ElMessage.error('不好意思，出错啦~')
             }
         }
         // 删除用户
@@ -261,7 +261,7 @@ export default {
                     },
                 })
             } catch (error) {
-
+                ElMessage.error('不好意思，出错啦~')
             }
             ElMessage.success('删除成功')
             getUserList()
@@ -302,6 +302,7 @@ export default {
             handleEdit,
             handleSubmit,
             rules,
+            handleSizeChange,
         }
     }
 }
@@ -316,7 +317,7 @@ export default {
 }
 
 .pag {
-    margin-top: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 </style>

@@ -182,7 +182,8 @@ router.post('/applyList', async (ctx) => {
         const res = await Apply.aggregate([
             {
                 $match: {
-                    applyPetId: petId
+                    applyPetId: petId,
+                    status: '领养中'
                 },
             },
             {
@@ -218,6 +219,73 @@ router.post('/applyList', async (ctx) => {
         // ctx.body = util.success(query)
     } catch (error) {
         ctx.body = util.fail(`查询异常:${error.stack}`)
+    }
+})
+
+// 给TA领养
+router.post('/addAdopter', async (ctx) => {
+    const row = ctx.request.body
+    try {
+        // 更新宠物状态
+        const res = await Adopt.updateOne({
+            petId: row.applyPetId
+        }, {
+            status: '已领养',
+            adopter: row
+        })
+        if (res.modifiedCount) {
+            // 修改其他申请人状态
+            const res1 = await Apply.updateMany({
+                applyPetId: row.applyPetId,
+                // 状态不为已取消
+                status: {
+                    $ne: '已取消'
+                }
+            },
+                {
+                    status: '领养失败'
+                })
+            // 更新申请人状态
+            const res2 = await Apply.updateOne({
+                idCard: row.idCard,
+                applyPetId: row.applyPetId
+            },
+                {
+                    status: '已领养'
+                })
+        }
+        ctx.body = util.success(res)
+    } catch (error) {
+        ctx.body = util.fail(`操作失败:${error.stack}`)
+    }
+})
+
+// 取消领养
+router.post('/cancelAdopt', async (ctx) => {
+    const { petId } = ctx.request.body
+    try {
+        const res = await Adopt.updateOne({
+            petId
+        }, {
+            status: '待领养',
+            adopter: {}
+        })
+        if (res.modifiedCount) {
+            // 更新申请人状态
+            const res1 = await Apply.updateMany({
+                applyPetId: petId,
+                // 状态不为已取消
+                status: {
+                    $ne: '已取消'
+                }
+            },
+                {
+                    status: '领养中'
+                })
+        }
+        ctx.body = util.success(res)
+    } catch (error) {
+        ctx.body = util.fail(`取消领养失败:${error.stack}`)
     }
 })
 

@@ -39,7 +39,7 @@
                     <el-table-column align="center" label="图片">
                         <template #default="scope">
                             <el-image style="width: 50px; height: 50px" :src="scope.row.img[0]"
-                                :preview-src-list="scope.row.img" :zoom-rate="1.2" :initial-index="1" fit="cover" />
+                                :preview-src-list="scope.row.img" :zoom-rate="1.2" :initial-index="1" fit="contain" />
                         </template>
                     </el-table-column>
                     <el-table-column align="center" label="状态" width="140">
@@ -278,7 +278,7 @@ export default {
 }
 
 .pag {
-    margin-top: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 </style>

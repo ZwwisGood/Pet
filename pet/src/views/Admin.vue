@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-    <div class="left">
+  <div class="main animated animate__fadeIn">
+    <div class="left" style="position:fixed;left:0;z-index:999">
       <el-row class="tac">
         <el-col :span="12">
           <div class="title"><img src="../assets/images/logo.jpeg" alt="">乐宠后台管理系统</div>
@@ -46,7 +46,7 @@
         </el-col>
       </el-row>
     </div>
-    <div class="right">
+    <div class="right" style="margin-left:260px;padding-right:0px">
       <div style="background:white">
         <div class="top">
           <div class="bread">
@@ -59,7 +59,7 @@
         <div>
           <router-view></router-view>
         </div>
-        
+
       </div>
     </div>
   </div>

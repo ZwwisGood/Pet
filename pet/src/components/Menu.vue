@@ -1,13 +1,14 @@
 <template>
-    <div id="nav" class="container clearfix">
+    <div id="nav" class="">
         <img src="../assets/images/logo.jpeg">
         <span class="title">乐宠网</span>
-        <ul class="fr clearfix">
+        <ul class="fr">
             <li><el-button size="large" :class="{ active: btnNum == 1 }" @click="btnClick(1)">首页</el-button></li>
             <li><el-button size="large" :class="{ active: btnNum == 2 }" @click="btnClick(2)">关于我们</el-button></li>
             <li><el-button size="large" :class="{ active: btnNum == 3 }" @click="btnClick(3)">产品展示</el-button></li>
             <li><el-button size="large" :class="{ active: btnNum == 4 }" @click="btnClick(4)">新闻动态</el-button></li>
         </ul>
+
     </div>
 </template>
 
@@ -36,6 +37,7 @@ export default {
 .el-button {
     border: none;
 }
+
 .active {
     color: black;
     border: none;
@@ -47,7 +49,12 @@ export default {
     img {
         width: 100px;
         height: 100px;
+        margin-left: 150px;
         vertical-align: top;
+    }
+
+    ul {
+        margin-right: 150px;
     }
 
     .title {

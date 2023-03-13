@@ -2,6 +2,7 @@ const router = require('koa-router')()
 const User = require('../models/userSchema')
 const Counter = require('../models/counterSchema')
 const util = require('../utils/utils')
+const jwt = require('jsonwebtoken')
 
 router.prefix('/user')
 
@@ -54,33 +55,37 @@ router.post('/del', async (ctx) => {
 router.post('/add', async (ctx) => {
   const { userId, userName, userPwd, role, action, phone } = ctx.request.body
   try {
+    // 添加
     if (action == 'add') {
-      // 查询是否已存在该用户
-      const r = await User.findOne({ $or: [{ userName }] }, '_id userName')
-      if (r) {
+      // 查询该用户名的数量
+      const num = await User.find({ userName: userName }, '_id userName').count()
+      console.log(num);
+      if (num >= 1) {
         ctx.body = util.fail(`用户名已存在`)
-      } else {
-        // 查询最大的userId
-        const { sequence_value } = await Counter.findOneAndUpdate({
-          _id: 'userId'
-        }, {
-          $inc: { sequence_value: 1 }
-        }, {
-          new: true,
-        })
-        // 新增用户
-        const res = await User.create({
-          userId: sequence_value,
-          userName,
-          phone,
-          userPwd,
-          state: 1,
-          avatar: '',
-          role
-        })
-        ctx.body = util.success(res)
+        return
       }
-    } else {
+      // 查询最大的userId
+      const { sequence_value } = await Counter.findOneAndUpdate({
+        _id: 'userId'
+      }, {
+        $inc: { sequence_value: 1 }
+      }, {
+        new: true,
+      })
+      // 新增用户
+      const res = await User.create({
+        userId: sequence_value,
+        userName,
+        phone,
+        userPwd,
+        state: 1,
+        avatar: '',
+        role
+      })
+      ctx.body = util.success(res)
+    }
+    else {
+      // 编辑
       // 查询该userName的数量
 
       const r = await User.find({ $or: [{ userName }] }, '_id userName')
@@ -102,7 +107,7 @@ router.post('/register', async (ctx) => {
   const { userName, userPwd, state } = ctx.request.body
   try {
     // 查询是否已存在该用户
-    const r = await User.findOne({ $or: [{ userName }] }, '_id userName')
+    const r = await User.find({ userName })
     if (r) {
       ctx.body = util.fail(`用户已存在`)
     } else {
@@ -130,4 +135,28 @@ router.post('/register', async (ctx) => {
   }
 })
 
+// 登录
+router.post('/login', async (ctx) => {
+  try {
+    const { userName, userPwd } = ctx.request.body
+    const res = await User.findOne({
+      userName,
+      userPwd
+    }, { _id: 0, userPwd: 0 })
+    if (res) {
+      const data = res._doc
+      const token = jwt.sign({
+        userId: data.userId,
+        userName: data.userName,
+        role: data.role
+      }, 'zww', { expiresIn: '1h' })
+      data.token = token
+      ctx.body = util.success(data)
+    } else {
+      ctx.body = util.fail(`账号或密码不正确`)
+    }
+  } catch (error) {
+    ctx.body = util.fail(err.stack)
+  }
+})
 module.exports = router

@@ -9,7 +9,8 @@
                         <el-input width="100px" v-model="loginForm.userName" placeholder="Username"></el-input>
                     </el-form-item>
                     <el-form-item label="密码" prop="password">
-                        <el-input type="password" v-model="loginForm.userPwd" placeholder="Password"></el-input>
+                        <el-input type="password" @keyup.enter.native="onSubmit" v-model="loginForm.userPwd"
+                            placeholder="Password"></el-input>
                     </el-form-item>
                 </el-form>
                 <el-button class="submit" type="primary" @click="onSubmit">登录</el-button>
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
     data() {
         return {
@@ -81,21 +83,26 @@ export default {
     },
     methods: {
         onSubmit() {
-            this.$refs.loginForm.validate((valid) => {
+            this.$refs.loginForm.validate(async (valid) => {
                 if (valid) {
+                    const res = await this.$api({
+                        url: '/user/login',
+                        method: 'post',
+                        data: this.loginForm
+                    })
                     this.$message({
                         message: '登录成功',
                         type: 'success'
-                    });
-                    // try {
+                    })
+                    console.log(res)
+                    this.$store.commit('setUserInfo', res)
+                    this.$nextTick(() => {
+                        this.$router.push('/')
+                    })
 
-                    // } catch (error) {
-
-                    // }
-                    // this.$router.push('/home')
                 } else {
-                    console.log('error submit!!');
-                    return false;
+                    console.log('error submit!!')
+                    return false
                 }
             });
         },
@@ -112,7 +119,7 @@ export default {
                             message: '注册成功',
                             type: 'success'
                         });
-                        this.$router.push('/home')
+                        this.$router.push('/')
                     } catch (error) {
                         this.$message.error(error)
                     }
@@ -142,7 +149,7 @@ export default {
     padding: 50px;
     margin-top: 100px;
     position: relative;
-    box-shadow: 20px 20px 30px  rgba(0, 0, 0, .5);
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, .5);
 
     a {
         position: absolute;

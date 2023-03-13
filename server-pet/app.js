@@ -12,6 +12,7 @@ const articles = require('./routes/articles')
 const adopt = require('./routes/adopt')
 const koajwt = require('koa-jwt')
 const log4js = require('./utils/log4js')
+const util = require('./utils/utils')
 
 // error handler
 onerror(app)
@@ -37,18 +38,18 @@ app.use(async (ctx, next) => {
   log4js.info(`===========POST params:${JSON.stringify(ctx.request.body)}`)
   await next().catch((err) => {
     if (err.status == '401') {
-      ctx.status = 201;
-      ctx.body = {
-        msg: 'Token失效，请重新登录'
-      }
+      console.log('11111111111111111111', err)
+      ctx.status = 200;
+      ctx.body = util.fail('Token认证失败', util.CODE.AUTH_ERROR)
     } else {
       throw err;
     }
   })
 })
+
 app.use(koajwt({ secret: 'zww' }).unless({
   // 这里是白名单，不需要token的接口
-  path: [/^\/api/]
+  path: [/^\/api\/user\/login/]
 }))
 
 router.prefix('/api')

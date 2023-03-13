@@ -23,7 +23,7 @@
         </el-card>
         <div class="table">
             <el-card>
-                <el-button type="primary" @click="handleCreate">添加宠物</el-button>
+                <el-button type="primary" @click="handleCreate"><i class="el-icon-plus"></i>添加宠物</el-button>
                 <el-table style="width:100%" :data="adoptList">
                     <el-table-column align="center" v-for="item in columns" :key="item.prop" :prop="item.prop"
                         :sortable="item.label == '种类' || item.label == '更新时间' || item.label == '发布时间' || item.label == 'ID'"
@@ -49,7 +49,7 @@
                     <el-table-column align="center" label="宠物图片" width="100">
                         <template #default="scope">
                             <el-image style="width: 50px;height: 50px" :src="scope.row.img ? scope.row.img[0] : ''"
-                                :preview-src-list="scope.row.img" :zoom-rate="1.2" :initial-index="1" fit="fit" />
+                                :preview-src-list="scope.row.img" :zoom-rate="1.2" :initial-index="1" fit="contain" />
                         </template>
                     </el-table-column>
                     <!-- 查看申请人 -->
@@ -62,10 +62,10 @@
                                         class="el-icon-edit"></i></el-button>
                             </el-tooltip>
                             <el-tooltip content="取消领养" placement="top">
-                                <el-button @click="cancel(scope.row)" type="warning"
+                                <el-button @click="cancelAdopt(scope.row)" type="warning"
                                     :disabled="scope.row.status == '待领养'"><i class="el-icon-close"></i></el-button>
                             </el-tooltip>
-                            <el-popconfirm placement="top" title="确定删除该宠物吗吗?" confirm-button-text="确定"
+                            <el-popconfirm placement="top" title="确定删除该宠物吗?" confirm-button-text="确定"
                                 cancel-button-text="关闭" @confirm="del(scope.row)">
                                 <template #reference>
                                     <el-button type="danger"><i class="el-icon-delete"></i></el-button>
@@ -90,7 +90,9 @@
                         show-overflow-tooltip>
                     </el-table-column>
                     <el-table-column align="center" label="领养">
-                        <el-button type="primary" size="small">叫TA领养</el-button>
+                        <template #default="scope">
+                            <el-button type="primary" size="small" @click="addAdopter(scope.row)">给TA领养</el-button>
+                        </template>
                     </el-table-column>
                 </el-table>
             </el-drawer>
@@ -258,6 +260,34 @@ export default {
         }
     },
     methods: {
+        async cancelAdopt(row) {
+            try {
+                await this.$api({
+                    url: '/adopt/cancelAdopt',
+                    method: 'post',
+                    data: row
+                })
+                this.$message.success('取消成功')
+                this.getAdoptList()
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        async addAdopter(row) {
+            try {
+                console.log(row);
+                await this.$api({
+                    url: '/adopt/addAdopter',
+                    method: 'post',
+                    data: row
+                })
+                this.$message.success('操作成功')
+                this.getAdoptList()
+                this.drawer = false
+            } catch (error) {
+                console.log(error)
+            }
+        },
         //图片上传
         upload(item) {
             console.log(item);
@@ -476,7 +506,7 @@ export default {
 }
 
 .pag {
-    margin-top: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 

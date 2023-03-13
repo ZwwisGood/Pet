@@ -7,6 +7,7 @@ import './style.css'
 import api from './api/index.js'
 import store from './store/index.js'
 import 'animate.css'
+import 'hover.css'
 
 const app = createApp(App)
 
